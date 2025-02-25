@@ -10,6 +10,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -46,6 +47,22 @@ public class KundenController implements Initializable {
         }
         catch(Exception e) {
             System.out.println("Problem"); // TODO: Ausgabe in der GUI
+        }
+    }
+
+    @FXML
+    protected void delete() {
+        // Fragt das Objekt aus der ausgewählten Zeile in der Tabelle
+        Kunde ausgewaelt = kundenTbl.getSelectionModel().getSelectedItem();
+        if(ausgewaelt != null) {
+            try {
+                crud.delete(ausgewaelt);
+                showKunden();
+            }
+            catch (SQLException e) {
+                System.out.println("Problem"); // TODO: Ausgabe in der GUI
+            }
+
         }
     }
 

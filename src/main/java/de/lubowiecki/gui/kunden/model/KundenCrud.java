@@ -123,11 +123,11 @@ public class KundenCrud {
         }
     }
 
-    private boolean delete(Kunde kunde) throws SQLException {
+    public boolean delete(Kunde kunde) throws SQLException {
         return delete(kunde.getId());
     }
 
-    private boolean delete(int id) throws SQLException {
+    public boolean delete(int id) throws SQLException {
 
         final String SQL = "DELETE FROM " + TABLE + " WHERE id = " + id;
 
